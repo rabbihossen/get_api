@@ -24,10 +24,9 @@ class _APITestScreenState extends State<APITestScreen> {
       appBar: AppBar(
         title: Text('API Test'),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          SizedBox(
-            height: 1000,
+          Flexible(
             child: GridView.builder(
               // ignore: prefer_const_constructors
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -42,14 +41,21 @@ class _APITestScreenState extends State<APITestScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        flex: 3,
-                        child: Image.network(productList[index].image,height: 150, width: 180,)),
+                          flex: 3,
+                          child: Image.network(
+                            productList[index].image,
+                            height: 150,
+                            width: 180,
+                          )),
                       Expanded(
-                        flex: 2,
-                        child: Text(productList[index].title, style: TextStyle(fontSize:15),)),
+                          flex: 2,
+                          child: Text(
+                            productList[index].title,
+                            style: TextStyle(fontSize: 15),
+                          )),
                       Expanded(
-                       flex: 1,
-                        child: Text(productList[index].price.toString())),
+                          flex: 1,
+                          child: Text(productList[index].price.toString())),
                     ],
                   ),
                 );
