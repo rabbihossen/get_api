@@ -11,6 +11,13 @@ class APITestScreen extends StatefulWidget {
 class _APITestScreenState extends State<APITestScreen> {
   String outputText = 'Output';
   List<Products> productList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    functions();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,31 +26,42 @@ class _APITestScreenState extends State<APITestScreen> {
       ),
       body: ListView(
         children: [
-      ElevatedButton(
-        onPressed: functions,
-        child: Text("ShowData"),
-      ),
-      SizedBox(
-        height: 700,
-        child: ListView.builder(
-          itemCount: productList.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(productList[index].title),
-            );
-          },
-        ),
-      )
+          SizedBox(
+            height: 1000,
+            child: GridView.builder(
+              // ignore: prefer_const_constructors
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 2 / 3,
+                crossAxisCount: 3,
+              ),
+              itemCount: productList.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  shadowColor: Colors.green,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Image.network(productList[index].image,height: 150, width: 180,)),
+                      Expanded(
+                        flex: 2,
+                        child: Text(productList[index].title, style: TextStyle(fontSize:15),)),
+                      Expanded(
+                       flex: 1,
+                        child: Text(productList[index].price.toString())),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );
   }
 
   Future<void> functions() async {
-    setState(() {
-      outputText = 'loading...';
-    });
-
     var response = await http
         .get(
       Uri.parse('https://fakestoreapi.com/products'),
