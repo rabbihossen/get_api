@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_api/Model/product_model.dart';
 
+import 'Screen/four_api.dart';
 import 'Screen/main_screen.dart';
 import 'Screen/second_api.dart';
 import 'Screen/third_api.dart';
@@ -37,6 +38,15 @@ class _HomePageState extends State<HomePage> {
                   builder: (BuildContext context) => third_api()));
             },
             child: Text("Third")),
+              ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => FourthApi()));
+            },
+            child: Text("Fourth")),
+
+
+            
       ],
     );
   }
