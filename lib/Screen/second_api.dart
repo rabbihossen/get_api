@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../Model/product_model.dart';
 
-class APITestScreen extends StatefulWidget {
-  const APITestScreen({Key? key}) : super(key: key);
+class SecondApi extends StatefulWidget {
+  const SecondApi({Key? key}) : super(key: key);
   @override
-  _APITestScreenState createState() => _APITestScreenState();
+  _SecondApiState createState() => _SecondApiState();
 }
 
-class _APITestScreenState extends State<APITestScreen> {
+class _SecondApiState extends State<SecondApi> {
   String outputText = 'Output';
   List<Products> productList = [];
 
