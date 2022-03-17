@@ -35,28 +35,33 @@ class _APITestScreenState extends State<APITestScreen> {
               ),
               itemCount: productList.length,
               itemBuilder: (context, index) {
-                return Card(
-                  shadowColor: Colors.green,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                          flex: 3,
-                          child: Image.network(
-                            productList[index].image,
-                            height: 150,
-                            width: 180,
-                          )),
-                      Expanded(
-                          flex: 2,
-                          child: Text(
-                            productList[index].title,
-                            style: TextStyle(fontSize: 15),
-                          )),
-                      Expanded(
-                          flex: 1,
-                          child: Text(productList[index].price.toString())),
-                    ],
+                return InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context ,)=> Dtails(productList)));
+                  },
+                  child: Card(
+                    shadowColor: Colors.green,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                            flex: 3,
+                            child: Image.network(
+                              productList[index].image,
+                              height: 150,
+                              width: 180,
+                            )),
+                        Expanded(
+                            flex: 2,
+                            child: Text(
+                              productList[index].title,
+                              style: TextStyle(fontSize: 15),
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(productList[index].price.toString())),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -89,4 +94,9 @@ class _APITestScreenState extends State<APITestScreen> {
       });
     });
   }
+}
+
+Dtails(List<Products> productList) {
+
+  return Text("productList[index]");
 }
