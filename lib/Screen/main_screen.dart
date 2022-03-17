@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'product_model.dart';
+import '../Model/product_model.dart';
 
 class APITestScreen extends StatefulWidget {
   const APITestScreen({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _APITestScreenState extends State<APITestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('API Test'),
+        title: const Text('API Test'),
       ),
       body: Column(
         children: [
