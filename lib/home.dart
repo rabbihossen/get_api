@@ -19,11 +19,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 700,
+      height: 600,
       child: ListView(
         children: [
 
-     APITestScreen()
+    
         
 
 
